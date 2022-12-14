@@ -9,7 +9,7 @@ for file in source_files_list:
         ast = yacc.parse(src_code)
         # print(dict.printtree())
     
-file = file[0:-2] + '.json'
+file ='AST.json'
 out_file = open(file, "w")
 json.dump(ast.printtree(), out_file, indent= 2)
 out_file.close()
