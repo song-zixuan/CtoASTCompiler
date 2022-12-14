@@ -1,0 +1,2518 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ANNOTATION
+
+Grammar
+
+Rule 0     S' -> start
+Rule 1     start -> declaration_list
+Rule 2     declaration_list -> declaration_list declaration
+Rule 3     declaration_list -> declaration
+Rule 4     declaration -> var_declaration
+Rule 5     declaration -> fun_declaration
+Rule 6     var_declaration -> type_specifier ID ;
+Rule 7     var_declaration -> type_specifier ID [ NUM ] = { numlist } ;
+Rule 8     var_declaration -> type_specifier ID [ NUM ] = STRING ;
+Rule 9     type_specifier -> INT
+Rule 10    type_specifier -> VOID
+Rule 11    type_specifier -> CHAR
+Rule 12    type_specifier -> CHAR_STAR
+Rule 13    type_specifier -> INT_STAR
+Rule 14    fun_declaration -> type_specifier ID ( params ) statement_block
+Rule 15    fun_declaration -> statement_block
+Rule 16    params -> param_list
+Rule 17    params -> VOID
+Rule 18    params -> <empty>
+Rule 19    param_list -> param_list , param
+Rule 20    param_list -> param
+Rule 21    param -> type_specifier ID
+Rule 22    param -> type_specifier ID [ ]
+Rule 23    statement_block -> { statement_list }
+Rule 24    statement_list -> statement_list statement
+Rule 25    statement_list -> <empty>
+Rule 26    statement -> expression_statement
+Rule 27    statement -> statement_block
+Rule 28    statement -> if_else_statements
+Rule 29    statement -> while_statments
+Rule 30    statement -> return_statements
+Rule 31    statement -> var_declaration
+Rule 32    expression_statement -> expression ;
+Rule 33    expression_statement -> ;
+Rule 34    if_else_statements -> IF ( expression ) statement
+Rule 35    if_else_statements -> IF ( expression ) statement ELSE statement
+Rule 36    while_statments -> WHILE ( expression ) statement
+Rule 37    return_statements -> RETURN ;
+Rule 38    return_statements -> RETURN expression ;
+Rule 39    expression -> var = expression
+Rule 40    expression -> simple_expression
+Rule 41    expression -> type_specifier var = expression
+Rule 42    expression -> STRING
+Rule 43    numlist -> numlist , NUM
+Rule 44    numlist -> NUM
+Rule 45    var -> ID
+Rule 46    var -> ID [ expression ]
+Rule 47    simple_expression -> addsub_object relational_operator addsub_object
+Rule 48    simple_expression -> addsub_object
+Rule 49    relational_operator -> LE
+Rule 50    relational_operator -> <
+Rule 51    relational_operator -> >
+Rule 52    relational_operator -> GE
+Rule 53    relational_operator -> EE
+Rule 54    relational_operator -> NE
+Rule 55    addsub_object -> addsub_object add_sub muldiv_object
+Rule 56    addsub_object -> muldiv_object
+Rule 57    muldiv_object -> muldiv_object mul_div object
+Rule 58    muldiv_object -> object
+Rule 59    add_sub -> +
+Rule 60    add_sub -> -
+Rule 61    mul_div -> *
+Rule 62    mul_div -> /
+Rule 63    object -> ( expression )
+Rule 64    object -> var
+Rule 65    object -> fun_value
+Rule 66    object -> NUM
+Rule 67    object -> BOOLEAN
+Rule 68    fun_value -> ID ( args )
+Rule 69    args -> arg_list
+Rule 70    args -> <empty>
+Rule 71    arg_list -> arg_list , expression
+Rule 72    arg_list -> expression
+
+Terminals, with rules where they appear
+
+(                    : 14 34 35 36 63 68
+)                    : 14 34 35 36 63 68
+*                    : 61
++                    : 59
+,                    : 19 43 71
+-                    : 60
+/                    : 62
+;                    : 6 7 8 32 33 37 38
+<                    : 50
+=                    : 7 8 39 41
+>                    : 51
+ANNOTATION           : 
+BOOLEAN              : 67
+CHAR                 : 11
+CHAR_STAR            : 12
+EE                   : 53
+ELSE                 : 35
+GE                   : 52
+ID                   : 6 7 8 14 21 22 45 46 68
+IF                   : 34 35
+INT                  : 9
+INT_STAR             : 13
+LE                   : 49
+NE                   : 54
+NUM                  : 7 8 43 44 66
+RETURN               : 37 38
+STRING               : 8 42
+VOID                 : 10 17
+WHILE                : 36
+[                    : 7 8 22 46
+]                    : 7 8 22 46
+error                : 
+{                    : 7 23
+}                    : 7 23
+
+Nonterminals, with rules where they appear
+
+add_sub              : 55
+addsub_object        : 47 47 48 55
+arg_list             : 69 71
+args                 : 68
+declaration          : 2 3
+declaration_list     : 1 2
+expression           : 32 34 35 36 38 39 41 46 63 71 72
+expression_statement : 26
+fun_declaration      : 5
+fun_value            : 65
+if_else_statements   : 28
+mul_div              : 57
+muldiv_object        : 55 56 57
+numlist              : 7 43
+object               : 57 58
+param                : 19 20
+param_list           : 16 19
+params               : 14
+relational_operator  : 47
+return_statements    : 30
+simple_expression    : 40
+start                : 0
+statement            : 24 34 35 35 36
+statement_block      : 14 15 27
+statement_list       : 23 24
+type_specifier       : 6 7 8 14 21 22 41
+var                  : 39 41 64
+var_declaration      : 4 31
+while_statments      : 29
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . start
+    (1) start -> . declaration_list
+    (2) declaration_list -> . declaration_list declaration
+    (3) declaration_list -> . declaration
+    (4) declaration -> . var_declaration
+    (5) declaration -> . fun_declaration
+    (6) var_declaration -> . type_specifier ID ;
+    (7) var_declaration -> . type_specifier ID [ NUM ] = { numlist } ;
+    (8) var_declaration -> . type_specifier ID [ NUM ] = STRING ;
+    (14) fun_declaration -> . type_specifier ID ( params ) statement_block
+    (15) fun_declaration -> . statement_block
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (23) statement_block -> . { statement_list }
+
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    {               shift and go to state 7
+
+    start                          shift and go to state 1
+    declaration_list               shift and go to state 2
+    declaration                    shift and go to state 3
+    var_declaration                shift and go to state 4
+    fun_declaration                shift and go to state 5
+    type_specifier                 shift and go to state 6
+    statement_block                shift and go to state 8
+
+state 1
+
+    (0) S' -> start .
+
+
+
+state 2
+
+    (1) start -> declaration_list .
+    (2) declaration_list -> declaration_list . declaration
+    (4) declaration -> . var_declaration
+    (5) declaration -> . fun_declaration
+    (6) var_declaration -> . type_specifier ID ;
+    (7) var_declaration -> . type_specifier ID [ NUM ] = { numlist } ;
+    (8) var_declaration -> . type_specifier ID [ NUM ] = STRING ;
+    (14) fun_declaration -> . type_specifier ID ( params ) statement_block
+    (15) fun_declaration -> . statement_block
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (23) statement_block -> . { statement_list }
+
+    $end            reduce using rule 1 (start -> declaration_list .)
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    {               shift and go to state 7
+
+    declaration                    shift and go to state 14
+    var_declaration                shift and go to state 4
+    fun_declaration                shift and go to state 5
+    type_specifier                 shift and go to state 6
+    statement_block                shift and go to state 8
+
+state 3
+
+    (3) declaration_list -> declaration .
+
+    INT             reduce using rule 3 (declaration_list -> declaration .)
+    VOID            reduce using rule 3 (declaration_list -> declaration .)
+    CHAR            reduce using rule 3 (declaration_list -> declaration .)
+    CHAR_STAR       reduce using rule 3 (declaration_list -> declaration .)
+    INT_STAR        reduce using rule 3 (declaration_list -> declaration .)
+    {               reduce using rule 3 (declaration_list -> declaration .)
+    $end            reduce using rule 3 (declaration_list -> declaration .)
+
+
+state 4
+
+    (4) declaration -> var_declaration .
+
+    INT             reduce using rule 4 (declaration -> var_declaration .)
+    VOID            reduce using rule 4 (declaration -> var_declaration .)
+    CHAR            reduce using rule 4 (declaration -> var_declaration .)
+    CHAR_STAR       reduce using rule 4 (declaration -> var_declaration .)
+    INT_STAR        reduce using rule 4 (declaration -> var_declaration .)
+    {               reduce using rule 4 (declaration -> var_declaration .)
+    $end            reduce using rule 4 (declaration -> var_declaration .)
+
+
+state 5
+
+    (5) declaration -> fun_declaration .
+
+    INT             reduce using rule 5 (declaration -> fun_declaration .)
+    VOID            reduce using rule 5 (declaration -> fun_declaration .)
+    CHAR            reduce using rule 5 (declaration -> fun_declaration .)
+    CHAR_STAR       reduce using rule 5 (declaration -> fun_declaration .)
+    INT_STAR        reduce using rule 5 (declaration -> fun_declaration .)
+    {               reduce using rule 5 (declaration -> fun_declaration .)
+    $end            reduce using rule 5 (declaration -> fun_declaration .)
+
+
+state 6
+
+    (6) var_declaration -> type_specifier . ID ;
+    (7) var_declaration -> type_specifier . ID [ NUM ] = { numlist } ;
+    (8) var_declaration -> type_specifier . ID [ NUM ] = STRING ;
+    (14) fun_declaration -> type_specifier . ID ( params ) statement_block
+
+    ID              shift and go to state 15
+
+
+state 7
+
+    (23) statement_block -> { . statement_list }
+    (24) statement_list -> . statement_list statement
+    (25) statement_list -> .
+
+    }               reduce using rule 25 (statement_list -> .)
+    ;               reduce using rule 25 (statement_list -> .)
+    {               reduce using rule 25 (statement_list -> .)
+    IF              reduce using rule 25 (statement_list -> .)
+    WHILE           reduce using rule 25 (statement_list -> .)
+    RETURN          reduce using rule 25 (statement_list -> .)
+    STRING          reduce using rule 25 (statement_list -> .)
+    INT             reduce using rule 25 (statement_list -> .)
+    VOID            reduce using rule 25 (statement_list -> .)
+    CHAR            reduce using rule 25 (statement_list -> .)
+    CHAR_STAR       reduce using rule 25 (statement_list -> .)
+    INT_STAR        reduce using rule 25 (statement_list -> .)
+    ID              reduce using rule 25 (statement_list -> .)
+    (               reduce using rule 25 (statement_list -> .)
+    NUM             reduce using rule 25 (statement_list -> .)
+    BOOLEAN         reduce using rule 25 (statement_list -> .)
+
+    statement_list                 shift and go to state 16
+
+state 8
+
+    (15) fun_declaration -> statement_block .
+
+    INT             reduce using rule 15 (fun_declaration -> statement_block .)
+    VOID            reduce using rule 15 (fun_declaration -> statement_block .)
+    CHAR            reduce using rule 15 (fun_declaration -> statement_block .)
+    CHAR_STAR       reduce using rule 15 (fun_declaration -> statement_block .)
+    INT_STAR        reduce using rule 15 (fun_declaration -> statement_block .)
+    {               reduce using rule 15 (fun_declaration -> statement_block .)
+    $end            reduce using rule 15 (fun_declaration -> statement_block .)
+
+
+state 9
+
+    (9) type_specifier -> INT .
+
+    ID              reduce using rule 9 (type_specifier -> INT .)
+
+
+state 10
+
+    (10) type_specifier -> VOID .
+
+    ID              reduce using rule 10 (type_specifier -> VOID .)
+
+
+state 11
+
+    (11) type_specifier -> CHAR .
+
+    ID              reduce using rule 11 (type_specifier -> CHAR .)
+
+
+state 12
+
+    (12) type_specifier -> CHAR_STAR .
+
+    ID              reduce using rule 12 (type_specifier -> CHAR_STAR .)
+
+
+state 13
+
+    (13) type_specifier -> INT_STAR .
+
+    ID              reduce using rule 13 (type_specifier -> INT_STAR .)
+
+
+state 14
+
+    (2) declaration_list -> declaration_list declaration .
+
+    INT             reduce using rule 2 (declaration_list -> declaration_list declaration .)
+    VOID            reduce using rule 2 (declaration_list -> declaration_list declaration .)
+    CHAR            reduce using rule 2 (declaration_list -> declaration_list declaration .)
+    CHAR_STAR       reduce using rule 2 (declaration_list -> declaration_list declaration .)
+    INT_STAR        reduce using rule 2 (declaration_list -> declaration_list declaration .)
+    {               reduce using rule 2 (declaration_list -> declaration_list declaration .)
+    $end            reduce using rule 2 (declaration_list -> declaration_list declaration .)
+
+
+state 15
+
+    (6) var_declaration -> type_specifier ID . ;
+    (7) var_declaration -> type_specifier ID . [ NUM ] = { numlist } ;
+    (8) var_declaration -> type_specifier ID . [ NUM ] = STRING ;
+    (14) fun_declaration -> type_specifier ID . ( params ) statement_block
+
+    ;               shift and go to state 17
+    [               shift and go to state 18
+    (               shift and go to state 19
+
+
+state 16
+
+    (23) statement_block -> { statement_list . }
+    (24) statement_list -> statement_list . statement
+    (26) statement -> . expression_statement
+    (27) statement -> . statement_block
+    (28) statement -> . if_else_statements
+    (29) statement -> . while_statments
+    (30) statement -> . return_statements
+    (31) statement -> . var_declaration
+    (32) expression_statement -> . expression ;
+    (33) expression_statement -> . ;
+    (23) statement_block -> . { statement_list }
+    (34) if_else_statements -> . IF ( expression ) statement
+    (35) if_else_statements -> . IF ( expression ) statement ELSE statement
+    (36) while_statments -> . WHILE ( expression ) statement
+    (37) return_statements -> . RETURN ;
+    (38) return_statements -> . RETURN expression ;
+    (6) var_declaration -> . type_specifier ID ;
+    (7) var_declaration -> . type_specifier ID [ NUM ] = { numlist } ;
+    (8) var_declaration -> . type_specifier ID [ NUM ] = STRING ;
+    (39) expression -> . var = expression
+    (40) expression -> . simple_expression
+    (41) expression -> . type_specifier var = expression
+    (42) expression -> . STRING
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (47) simple_expression -> . addsub_object relational_operator addsub_object
+    (48) simple_expression -> . addsub_object
+    (55) addsub_object -> . addsub_object add_sub muldiv_object
+    (56) addsub_object -> . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (68) fun_value -> . ID ( args )
+
+    }               shift and go to state 20
+    ;               shift and go to state 29
+    {               shift and go to state 7
+    IF              shift and go to state 30
+    WHILE           shift and go to state 32
+    RETURN          shift and go to state 33
+    STRING          shift and go to state 37
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    ID              shift and go to state 35
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+
+    statement                      shift and go to state 21
+    expression_statement           shift and go to state 22
+    statement_block                shift and go to state 23
+    if_else_statements             shift and go to state 24
+    while_statments                shift and go to state 25
+    return_statements              shift and go to state 26
+    var_declaration                shift and go to state 27
+    expression                     shift and go to state 28
+    type_specifier                 shift and go to state 34
+    var                            shift and go to state 38
+    simple_expression              shift and go to state 39
+    addsub_object                  shift and go to state 40
+    muldiv_object                  shift and go to state 41
+    object                         shift and go to state 42
+    fun_value                      shift and go to state 43
+
+state 17
+
+    (6) var_declaration -> type_specifier ID ; .
+
+    INT             reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    VOID            reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    CHAR            reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    CHAR_STAR       reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    INT_STAR        reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    {               reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    $end            reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    }               reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    ;               reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    IF              reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    WHILE           reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    RETURN          reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    STRING          reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    ID              reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    (               reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    NUM             reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    BOOLEAN         reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+    ELSE            reduce using rule 6 (var_declaration -> type_specifier ID ; .)
+
+
+state 18
+
+    (7) var_declaration -> type_specifier ID [ . NUM ] = { numlist } ;
+    (8) var_declaration -> type_specifier ID [ . NUM ] = STRING ;
+
+    NUM             shift and go to state 45
+
+
+state 19
+
+    (14) fun_declaration -> type_specifier ID ( . params ) statement_block
+    (16) params -> . param_list
+    (17) params -> . VOID
+    (18) params -> .
+    (19) param_list -> . param_list , param
+    (20) param_list -> . param
+    (21) param -> . type_specifier ID
+    (22) param -> . type_specifier ID [ ]
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+
+    VOID            shift and go to state 49
+    )               reduce using rule 18 (params -> .)
+    INT             shift and go to state 9
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+
+    type_specifier                 shift and go to state 46
+    params                         shift and go to state 47
+    param_list                     shift and go to state 48
+    param                          shift and go to state 50
+
+state 20
+
+    (23) statement_block -> { statement_list } .
+
+    INT             reduce using rule 23 (statement_block -> { statement_list } .)
+    VOID            reduce using rule 23 (statement_block -> { statement_list } .)
+    CHAR            reduce using rule 23 (statement_block -> { statement_list } .)
+    CHAR_STAR       reduce using rule 23 (statement_block -> { statement_list } .)
+    INT_STAR        reduce using rule 23 (statement_block -> { statement_list } .)
+    {               reduce using rule 23 (statement_block -> { statement_list } .)
+    $end            reduce using rule 23 (statement_block -> { statement_list } .)
+    }               reduce using rule 23 (statement_block -> { statement_list } .)
+    ;               reduce using rule 23 (statement_block -> { statement_list } .)
+    IF              reduce using rule 23 (statement_block -> { statement_list } .)
+    WHILE           reduce using rule 23 (statement_block -> { statement_list } .)
+    RETURN          reduce using rule 23 (statement_block -> { statement_list } .)
+    STRING          reduce using rule 23 (statement_block -> { statement_list } .)
+    ID              reduce using rule 23 (statement_block -> { statement_list } .)
+    (               reduce using rule 23 (statement_block -> { statement_list } .)
+    NUM             reduce using rule 23 (statement_block -> { statement_list } .)
+    BOOLEAN         reduce using rule 23 (statement_block -> { statement_list } .)
+    ELSE            reduce using rule 23 (statement_block -> { statement_list } .)
+
+
+state 21
+
+    (24) statement_list -> statement_list statement .
+
+    }               reduce using rule 24 (statement_list -> statement_list statement .)
+    ;               reduce using rule 24 (statement_list -> statement_list statement .)
+    {               reduce using rule 24 (statement_list -> statement_list statement .)
+    IF              reduce using rule 24 (statement_list -> statement_list statement .)
+    WHILE           reduce using rule 24 (statement_list -> statement_list statement .)
+    RETURN          reduce using rule 24 (statement_list -> statement_list statement .)
+    STRING          reduce using rule 24 (statement_list -> statement_list statement .)
+    INT             reduce using rule 24 (statement_list -> statement_list statement .)
+    VOID            reduce using rule 24 (statement_list -> statement_list statement .)
+    CHAR            reduce using rule 24 (statement_list -> statement_list statement .)
+    CHAR_STAR       reduce using rule 24 (statement_list -> statement_list statement .)
+    INT_STAR        reduce using rule 24 (statement_list -> statement_list statement .)
+    ID              reduce using rule 24 (statement_list -> statement_list statement .)
+    (               reduce using rule 24 (statement_list -> statement_list statement .)
+    NUM             reduce using rule 24 (statement_list -> statement_list statement .)
+    BOOLEAN         reduce using rule 24 (statement_list -> statement_list statement .)
+
+
+state 22
+
+    (26) statement -> expression_statement .
+
+    }               reduce using rule 26 (statement -> expression_statement .)
+    ;               reduce using rule 26 (statement -> expression_statement .)
+    {               reduce using rule 26 (statement -> expression_statement .)
+    IF              reduce using rule 26 (statement -> expression_statement .)
+    WHILE           reduce using rule 26 (statement -> expression_statement .)
+    RETURN          reduce using rule 26 (statement -> expression_statement .)
+    STRING          reduce using rule 26 (statement -> expression_statement .)
+    INT             reduce using rule 26 (statement -> expression_statement .)
+    VOID            reduce using rule 26 (statement -> expression_statement .)
+    CHAR            reduce using rule 26 (statement -> expression_statement .)
+    CHAR_STAR       reduce using rule 26 (statement -> expression_statement .)
+    INT_STAR        reduce using rule 26 (statement -> expression_statement .)
+    ID              reduce using rule 26 (statement -> expression_statement .)
+    (               reduce using rule 26 (statement -> expression_statement .)
+    NUM             reduce using rule 26 (statement -> expression_statement .)
+    BOOLEAN         reduce using rule 26 (statement -> expression_statement .)
+    ELSE            reduce using rule 26 (statement -> expression_statement .)
+
+
+state 23
+
+    (27) statement -> statement_block .
+
+    }               reduce using rule 27 (statement -> statement_block .)
+    ;               reduce using rule 27 (statement -> statement_block .)
+    {               reduce using rule 27 (statement -> statement_block .)
+    IF              reduce using rule 27 (statement -> statement_block .)
+    WHILE           reduce using rule 27 (statement -> statement_block .)
+    RETURN          reduce using rule 27 (statement -> statement_block .)
+    STRING          reduce using rule 27 (statement -> statement_block .)
+    INT             reduce using rule 27 (statement -> statement_block .)
+    VOID            reduce using rule 27 (statement -> statement_block .)
+    CHAR            reduce using rule 27 (statement -> statement_block .)
+    CHAR_STAR       reduce using rule 27 (statement -> statement_block .)
+    INT_STAR        reduce using rule 27 (statement -> statement_block .)
+    ID              reduce using rule 27 (statement -> statement_block .)
+    (               reduce using rule 27 (statement -> statement_block .)
+    NUM             reduce using rule 27 (statement -> statement_block .)
+    BOOLEAN         reduce using rule 27 (statement -> statement_block .)
+    ELSE            reduce using rule 27 (statement -> statement_block .)
+
+
+state 24
+
+    (28) statement -> if_else_statements .
+
+    }               reduce using rule 28 (statement -> if_else_statements .)
+    ;               reduce using rule 28 (statement -> if_else_statements .)
+    {               reduce using rule 28 (statement -> if_else_statements .)
+    IF              reduce using rule 28 (statement -> if_else_statements .)
+    WHILE           reduce using rule 28 (statement -> if_else_statements .)
+    RETURN          reduce using rule 28 (statement -> if_else_statements .)
+    STRING          reduce using rule 28 (statement -> if_else_statements .)
+    INT             reduce using rule 28 (statement -> if_else_statements .)
+    VOID            reduce using rule 28 (statement -> if_else_statements .)
+    CHAR            reduce using rule 28 (statement -> if_else_statements .)
+    CHAR_STAR       reduce using rule 28 (statement -> if_else_statements .)
+    INT_STAR        reduce using rule 28 (statement -> if_else_statements .)
+    ID              reduce using rule 28 (statement -> if_else_statements .)
+    (               reduce using rule 28 (statement -> if_else_statements .)
+    NUM             reduce using rule 28 (statement -> if_else_statements .)
+    BOOLEAN         reduce using rule 28 (statement -> if_else_statements .)
+    ELSE            reduce using rule 28 (statement -> if_else_statements .)
+
+
+state 25
+
+    (29) statement -> while_statments .
+
+    }               reduce using rule 29 (statement -> while_statments .)
+    ;               reduce using rule 29 (statement -> while_statments .)
+    {               reduce using rule 29 (statement -> while_statments .)
+    IF              reduce using rule 29 (statement -> while_statments .)
+    WHILE           reduce using rule 29 (statement -> while_statments .)
+    RETURN          reduce using rule 29 (statement -> while_statments .)
+    STRING          reduce using rule 29 (statement -> while_statments .)
+    INT             reduce using rule 29 (statement -> while_statments .)
+    VOID            reduce using rule 29 (statement -> while_statments .)
+    CHAR            reduce using rule 29 (statement -> while_statments .)
+    CHAR_STAR       reduce using rule 29 (statement -> while_statments .)
+    INT_STAR        reduce using rule 29 (statement -> while_statments .)
+    ID              reduce using rule 29 (statement -> while_statments .)
+    (               reduce using rule 29 (statement -> while_statments .)
+    NUM             reduce using rule 29 (statement -> while_statments .)
+    BOOLEAN         reduce using rule 29 (statement -> while_statments .)
+    ELSE            reduce using rule 29 (statement -> while_statments .)
+
+
+state 26
+
+    (30) statement -> return_statements .
+
+    }               reduce using rule 30 (statement -> return_statements .)
+    ;               reduce using rule 30 (statement -> return_statements .)
+    {               reduce using rule 30 (statement -> return_statements .)
+    IF              reduce using rule 30 (statement -> return_statements .)
+    WHILE           reduce using rule 30 (statement -> return_statements .)
+    RETURN          reduce using rule 30 (statement -> return_statements .)
+    STRING          reduce using rule 30 (statement -> return_statements .)
+    INT             reduce using rule 30 (statement -> return_statements .)
+    VOID            reduce using rule 30 (statement -> return_statements .)
+    CHAR            reduce using rule 30 (statement -> return_statements .)
+    CHAR_STAR       reduce using rule 30 (statement -> return_statements .)
+    INT_STAR        reduce using rule 30 (statement -> return_statements .)
+    ID              reduce using rule 30 (statement -> return_statements .)
+    (               reduce using rule 30 (statement -> return_statements .)
+    NUM             reduce using rule 30 (statement -> return_statements .)
+    BOOLEAN         reduce using rule 30 (statement -> return_statements .)
+    ELSE            reduce using rule 30 (statement -> return_statements .)
+
+
+state 27
+
+    (31) statement -> var_declaration .
+
+    }               reduce using rule 31 (statement -> var_declaration .)
+    ;               reduce using rule 31 (statement -> var_declaration .)
+    {               reduce using rule 31 (statement -> var_declaration .)
+    IF              reduce using rule 31 (statement -> var_declaration .)
+    WHILE           reduce using rule 31 (statement -> var_declaration .)
+    RETURN          reduce using rule 31 (statement -> var_declaration .)
+    STRING          reduce using rule 31 (statement -> var_declaration .)
+    INT             reduce using rule 31 (statement -> var_declaration .)
+    VOID            reduce using rule 31 (statement -> var_declaration .)
+    CHAR            reduce using rule 31 (statement -> var_declaration .)
+    CHAR_STAR       reduce using rule 31 (statement -> var_declaration .)
+    INT_STAR        reduce using rule 31 (statement -> var_declaration .)
+    ID              reduce using rule 31 (statement -> var_declaration .)
+    (               reduce using rule 31 (statement -> var_declaration .)
+    NUM             reduce using rule 31 (statement -> var_declaration .)
+    BOOLEAN         reduce using rule 31 (statement -> var_declaration .)
+    ELSE            reduce using rule 31 (statement -> var_declaration .)
+
+
+state 28
+
+    (32) expression_statement -> expression . ;
+
+    ;               shift and go to state 51
+
+
+state 29
+
+    (33) expression_statement -> ; .
+
+    }               reduce using rule 33 (expression_statement -> ; .)
+    ;               reduce using rule 33 (expression_statement -> ; .)
+    {               reduce using rule 33 (expression_statement -> ; .)
+    IF              reduce using rule 33 (expression_statement -> ; .)
+    WHILE           reduce using rule 33 (expression_statement -> ; .)
+    RETURN          reduce using rule 33 (expression_statement -> ; .)
+    STRING          reduce using rule 33 (expression_statement -> ; .)
+    INT             reduce using rule 33 (expression_statement -> ; .)
+    VOID            reduce using rule 33 (expression_statement -> ; .)
+    CHAR            reduce using rule 33 (expression_statement -> ; .)
+    CHAR_STAR       reduce using rule 33 (expression_statement -> ; .)
+    INT_STAR        reduce using rule 33 (expression_statement -> ; .)
+    ID              reduce using rule 33 (expression_statement -> ; .)
+    (               reduce using rule 33 (expression_statement -> ; .)
+    NUM             reduce using rule 33 (expression_statement -> ; .)
+    BOOLEAN         reduce using rule 33 (expression_statement -> ; .)
+    ELSE            reduce using rule 33 (expression_statement -> ; .)
+
+
+state 30
+
+    (34) if_else_statements -> IF . ( expression ) statement
+    (35) if_else_statements -> IF . ( expression ) statement ELSE statement
+
+    (               shift and go to state 52
+
+
+state 31
+
+    (63) object -> ( . expression )
+    (39) expression -> . var = expression
+    (40) expression -> . simple_expression
+    (41) expression -> . type_specifier var = expression
+    (42) expression -> . STRING
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (47) simple_expression -> . addsub_object relational_operator addsub_object
+    (48) simple_expression -> . addsub_object
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (55) addsub_object -> . addsub_object add_sub muldiv_object
+    (56) addsub_object -> . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (68) fun_value -> . ID ( args )
+
+    STRING          shift and go to state 37
+    ID              shift and go to state 35
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+
+    expression                     shift and go to state 53
+    var                            shift and go to state 38
+    simple_expression              shift and go to state 39
+    type_specifier                 shift and go to state 54
+    addsub_object                  shift and go to state 40
+    muldiv_object                  shift and go to state 41
+    object                         shift and go to state 42
+    fun_value                      shift and go to state 43
+
+state 32
+
+    (36) while_statments -> WHILE . ( expression ) statement
+
+    (               shift and go to state 55
+
+
+state 33
+
+    (37) return_statements -> RETURN . ;
+    (38) return_statements -> RETURN . expression ;
+    (39) expression -> . var = expression
+    (40) expression -> . simple_expression
+    (41) expression -> . type_specifier var = expression
+    (42) expression -> . STRING
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (47) simple_expression -> . addsub_object relational_operator addsub_object
+    (48) simple_expression -> . addsub_object
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (55) addsub_object -> . addsub_object add_sub muldiv_object
+    (56) addsub_object -> . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (68) fun_value -> . ID ( args )
+
+    ;               shift and go to state 56
+    STRING          shift and go to state 37
+    ID              shift and go to state 35
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+
+    expression                     shift and go to state 57
+    var                            shift and go to state 38
+    simple_expression              shift and go to state 39
+    type_specifier                 shift and go to state 54
+    addsub_object                  shift and go to state 40
+    muldiv_object                  shift and go to state 41
+    object                         shift and go to state 42
+    fun_value                      shift and go to state 43
+
+state 34
+
+    (6) var_declaration -> type_specifier . ID ;
+    (7) var_declaration -> type_specifier . ID [ NUM ] = { numlist } ;
+    (8) var_declaration -> type_specifier . ID [ NUM ] = STRING ;
+    (41) expression -> type_specifier . var = expression
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+
+    ID              shift and go to state 58
+
+    var                            shift and go to state 59
+
+state 35
+
+    (45) var -> ID .
+    (46) var -> ID . [ expression ]
+    (68) fun_value -> ID . ( args )
+
+    =               reduce using rule 45 (var -> ID .)
+    *               reduce using rule 45 (var -> ID .)
+    /               reduce using rule 45 (var -> ID .)
+    LE              reduce using rule 45 (var -> ID .)
+    <               reduce using rule 45 (var -> ID .)
+    >               reduce using rule 45 (var -> ID .)
+    GE              reduce using rule 45 (var -> ID .)
+    EE              reduce using rule 45 (var -> ID .)
+    NE              reduce using rule 45 (var -> ID .)
+    +               reduce using rule 45 (var -> ID .)
+    -               reduce using rule 45 (var -> ID .)
+    ;               reduce using rule 45 (var -> ID .)
+    )               reduce using rule 45 (var -> ID .)
+    ]               reduce using rule 45 (var -> ID .)
+    ,               reduce using rule 45 (var -> ID .)
+    [               shift and go to state 60
+    (               shift and go to state 61
+
+
+state 36
+
+    (66) object -> NUM .
+
+    *               reduce using rule 66 (object -> NUM .)
+    /               reduce using rule 66 (object -> NUM .)
+    LE              reduce using rule 66 (object -> NUM .)
+    <               reduce using rule 66 (object -> NUM .)
+    >               reduce using rule 66 (object -> NUM .)
+    GE              reduce using rule 66 (object -> NUM .)
+    EE              reduce using rule 66 (object -> NUM .)
+    NE              reduce using rule 66 (object -> NUM .)
+    +               reduce using rule 66 (object -> NUM .)
+    -               reduce using rule 66 (object -> NUM .)
+    ;               reduce using rule 66 (object -> NUM .)
+    )               reduce using rule 66 (object -> NUM .)
+    ]               reduce using rule 66 (object -> NUM .)
+    ,               reduce using rule 66 (object -> NUM .)
+
+
+state 37
+
+    (42) expression -> STRING .
+
+    ;               reduce using rule 42 (expression -> STRING .)
+    )               reduce using rule 42 (expression -> STRING .)
+    ]               reduce using rule 42 (expression -> STRING .)
+    ,               reduce using rule 42 (expression -> STRING .)
+
+
+state 38
+
+    (39) expression -> var . = expression
+    (64) object -> var .
+
+    =               shift and go to state 62
+    *               reduce using rule 64 (object -> var .)
+    /               reduce using rule 64 (object -> var .)
+    LE              reduce using rule 64 (object -> var .)
+    <               reduce using rule 64 (object -> var .)
+    >               reduce using rule 64 (object -> var .)
+    GE              reduce using rule 64 (object -> var .)
+    EE              reduce using rule 64 (object -> var .)
+    NE              reduce using rule 64 (object -> var .)
+    +               reduce using rule 64 (object -> var .)
+    -               reduce using rule 64 (object -> var .)
+    ;               reduce using rule 64 (object -> var .)
+    )               reduce using rule 64 (object -> var .)
+    ]               reduce using rule 64 (object -> var .)
+    ,               reduce using rule 64 (object -> var .)
+
+
+state 39
+
+    (40) expression -> simple_expression .
+
+    ;               reduce using rule 40 (expression -> simple_expression .)
+    )               reduce using rule 40 (expression -> simple_expression .)
+    ]               reduce using rule 40 (expression -> simple_expression .)
+    ,               reduce using rule 40 (expression -> simple_expression .)
+
+
+state 40
+
+    (47) simple_expression -> addsub_object . relational_operator addsub_object
+    (48) simple_expression -> addsub_object .
+    (55) addsub_object -> addsub_object . add_sub muldiv_object
+    (49) relational_operator -> . LE
+    (50) relational_operator -> . <
+    (51) relational_operator -> . >
+    (52) relational_operator -> . GE
+    (53) relational_operator -> . EE
+    (54) relational_operator -> . NE
+    (59) add_sub -> . +
+    (60) add_sub -> . -
+
+    ;               reduce using rule 48 (simple_expression -> addsub_object .)
+    )               reduce using rule 48 (simple_expression -> addsub_object .)
+    ]               reduce using rule 48 (simple_expression -> addsub_object .)
+    ,               reduce using rule 48 (simple_expression -> addsub_object .)
+    LE              shift and go to state 65
+    <               shift and go to state 66
+    >               shift and go to state 67
+    GE              shift and go to state 68
+    EE              shift and go to state 69
+    NE              shift and go to state 70
+    +               shift and go to state 71
+    -               shift and go to state 72
+
+    relational_operator            shift and go to state 63
+    add_sub                        shift and go to state 64
+
+state 41
+
+    (56) addsub_object -> muldiv_object .
+    (57) muldiv_object -> muldiv_object . mul_div object
+    (61) mul_div -> . *
+    (62) mul_div -> . /
+
+    LE              reduce using rule 56 (addsub_object -> muldiv_object .)
+    <               reduce using rule 56 (addsub_object -> muldiv_object .)
+    >               reduce using rule 56 (addsub_object -> muldiv_object .)
+    GE              reduce using rule 56 (addsub_object -> muldiv_object .)
+    EE              reduce using rule 56 (addsub_object -> muldiv_object .)
+    NE              reduce using rule 56 (addsub_object -> muldiv_object .)
+    +               reduce using rule 56 (addsub_object -> muldiv_object .)
+    -               reduce using rule 56 (addsub_object -> muldiv_object .)
+    ;               reduce using rule 56 (addsub_object -> muldiv_object .)
+    )               reduce using rule 56 (addsub_object -> muldiv_object .)
+    ]               reduce using rule 56 (addsub_object -> muldiv_object .)
+    ,               reduce using rule 56 (addsub_object -> muldiv_object .)
+    *               shift and go to state 74
+    /               shift and go to state 75
+
+    mul_div                        shift and go to state 73
+
+state 42
+
+    (58) muldiv_object -> object .
+
+    *               reduce using rule 58 (muldiv_object -> object .)
+    /               reduce using rule 58 (muldiv_object -> object .)
+    LE              reduce using rule 58 (muldiv_object -> object .)
+    <               reduce using rule 58 (muldiv_object -> object .)
+    >               reduce using rule 58 (muldiv_object -> object .)
+    GE              reduce using rule 58 (muldiv_object -> object .)
+    EE              reduce using rule 58 (muldiv_object -> object .)
+    NE              reduce using rule 58 (muldiv_object -> object .)
+    +               reduce using rule 58 (muldiv_object -> object .)
+    -               reduce using rule 58 (muldiv_object -> object .)
+    ;               reduce using rule 58 (muldiv_object -> object .)
+    )               reduce using rule 58 (muldiv_object -> object .)
+    ]               reduce using rule 58 (muldiv_object -> object .)
+    ,               reduce using rule 58 (muldiv_object -> object .)
+
+
+state 43
+
+    (65) object -> fun_value .
+
+    *               reduce using rule 65 (object -> fun_value .)
+    /               reduce using rule 65 (object -> fun_value .)
+    LE              reduce using rule 65 (object -> fun_value .)
+    <               reduce using rule 65 (object -> fun_value .)
+    >               reduce using rule 65 (object -> fun_value .)
+    GE              reduce using rule 65 (object -> fun_value .)
+    EE              reduce using rule 65 (object -> fun_value .)
+    NE              reduce using rule 65 (object -> fun_value .)
+    +               reduce using rule 65 (object -> fun_value .)
+    -               reduce using rule 65 (object -> fun_value .)
+    ;               reduce using rule 65 (object -> fun_value .)
+    )               reduce using rule 65 (object -> fun_value .)
+    ]               reduce using rule 65 (object -> fun_value .)
+    ,               reduce using rule 65 (object -> fun_value .)
+
+
+state 44
+
+    (67) object -> BOOLEAN .
+
+    *               reduce using rule 67 (object -> BOOLEAN .)
+    /               reduce using rule 67 (object -> BOOLEAN .)
+    LE              reduce using rule 67 (object -> BOOLEAN .)
+    <               reduce using rule 67 (object -> BOOLEAN .)
+    >               reduce using rule 67 (object -> BOOLEAN .)
+    GE              reduce using rule 67 (object -> BOOLEAN .)
+    EE              reduce using rule 67 (object -> BOOLEAN .)
+    NE              reduce using rule 67 (object -> BOOLEAN .)
+    +               reduce using rule 67 (object -> BOOLEAN .)
+    -               reduce using rule 67 (object -> BOOLEAN .)
+    ;               reduce using rule 67 (object -> BOOLEAN .)
+    )               reduce using rule 67 (object -> BOOLEAN .)
+    ]               reduce using rule 67 (object -> BOOLEAN .)
+    ,               reduce using rule 67 (object -> BOOLEAN .)
+
+
+state 45
+
+    (7) var_declaration -> type_specifier ID [ NUM . ] = { numlist } ;
+    (8) var_declaration -> type_specifier ID [ NUM . ] = STRING ;
+
+    ]               shift and go to state 76
+
+
+state 46
+
+    (21) param -> type_specifier . ID
+    (22) param -> type_specifier . ID [ ]
+
+    ID              shift and go to state 77
+
+
+state 47
+
+    (14) fun_declaration -> type_specifier ID ( params . ) statement_block
+
+    )               shift and go to state 78
+
+
+state 48
+
+    (16) params -> param_list .
+    (19) param_list -> param_list . , param
+
+    )               reduce using rule 16 (params -> param_list .)
+    ,               shift and go to state 79
+
+
+state 49
+
+    (17) params -> VOID .
+    (10) type_specifier -> VOID .
+
+    )               reduce using rule 17 (params -> VOID .)
+    ID              reduce using rule 10 (type_specifier -> VOID .)
+
+
+state 50
+
+    (20) param_list -> param .
+
+    ,               reduce using rule 20 (param_list -> param .)
+    )               reduce using rule 20 (param_list -> param .)
+
+
+state 51
+
+    (32) expression_statement -> expression ; .
+
+    }               reduce using rule 32 (expression_statement -> expression ; .)
+    ;               reduce using rule 32 (expression_statement -> expression ; .)
+    {               reduce using rule 32 (expression_statement -> expression ; .)
+    IF              reduce using rule 32 (expression_statement -> expression ; .)
+    WHILE           reduce using rule 32 (expression_statement -> expression ; .)
+    RETURN          reduce using rule 32 (expression_statement -> expression ; .)
+    STRING          reduce using rule 32 (expression_statement -> expression ; .)
+    INT             reduce using rule 32 (expression_statement -> expression ; .)
+    VOID            reduce using rule 32 (expression_statement -> expression ; .)
+    CHAR            reduce using rule 32 (expression_statement -> expression ; .)
+    CHAR_STAR       reduce using rule 32 (expression_statement -> expression ; .)
+    INT_STAR        reduce using rule 32 (expression_statement -> expression ; .)
+    ID              reduce using rule 32 (expression_statement -> expression ; .)
+    (               reduce using rule 32 (expression_statement -> expression ; .)
+    NUM             reduce using rule 32 (expression_statement -> expression ; .)
+    BOOLEAN         reduce using rule 32 (expression_statement -> expression ; .)
+    ELSE            reduce using rule 32 (expression_statement -> expression ; .)
+
+
+state 52
+
+    (34) if_else_statements -> IF ( . expression ) statement
+    (35) if_else_statements -> IF ( . expression ) statement ELSE statement
+    (39) expression -> . var = expression
+    (40) expression -> . simple_expression
+    (41) expression -> . type_specifier var = expression
+    (42) expression -> . STRING
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (47) simple_expression -> . addsub_object relational_operator addsub_object
+    (48) simple_expression -> . addsub_object
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (55) addsub_object -> . addsub_object add_sub muldiv_object
+    (56) addsub_object -> . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (68) fun_value -> . ID ( args )
+
+    STRING          shift and go to state 37
+    ID              shift and go to state 35
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+
+    expression                     shift and go to state 80
+    var                            shift and go to state 38
+    simple_expression              shift and go to state 39
+    type_specifier                 shift and go to state 54
+    addsub_object                  shift and go to state 40
+    muldiv_object                  shift and go to state 41
+    object                         shift and go to state 42
+    fun_value                      shift and go to state 43
+
+state 53
+
+    (63) object -> ( expression . )
+
+    )               shift and go to state 81
+
+
+state 54
+
+    (41) expression -> type_specifier . var = expression
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+
+    ID              shift and go to state 82
+
+    var                            shift and go to state 59
+
+state 55
+
+    (36) while_statments -> WHILE ( . expression ) statement
+    (39) expression -> . var = expression
+    (40) expression -> . simple_expression
+    (41) expression -> . type_specifier var = expression
+    (42) expression -> . STRING
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (47) simple_expression -> . addsub_object relational_operator addsub_object
+    (48) simple_expression -> . addsub_object
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (55) addsub_object -> . addsub_object add_sub muldiv_object
+    (56) addsub_object -> . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (68) fun_value -> . ID ( args )
+
+    STRING          shift and go to state 37
+    ID              shift and go to state 35
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+
+    expression                     shift and go to state 83
+    var                            shift and go to state 38
+    simple_expression              shift and go to state 39
+    type_specifier                 shift and go to state 54
+    addsub_object                  shift and go to state 40
+    muldiv_object                  shift and go to state 41
+    object                         shift and go to state 42
+    fun_value                      shift and go to state 43
+
+state 56
+
+    (37) return_statements -> RETURN ; .
+
+    }               reduce using rule 37 (return_statements -> RETURN ; .)
+    ;               reduce using rule 37 (return_statements -> RETURN ; .)
+    {               reduce using rule 37 (return_statements -> RETURN ; .)
+    IF              reduce using rule 37 (return_statements -> RETURN ; .)
+    WHILE           reduce using rule 37 (return_statements -> RETURN ; .)
+    RETURN          reduce using rule 37 (return_statements -> RETURN ; .)
+    STRING          reduce using rule 37 (return_statements -> RETURN ; .)
+    INT             reduce using rule 37 (return_statements -> RETURN ; .)
+    VOID            reduce using rule 37 (return_statements -> RETURN ; .)
+    CHAR            reduce using rule 37 (return_statements -> RETURN ; .)
+    CHAR_STAR       reduce using rule 37 (return_statements -> RETURN ; .)
+    INT_STAR        reduce using rule 37 (return_statements -> RETURN ; .)
+    ID              reduce using rule 37 (return_statements -> RETURN ; .)
+    (               reduce using rule 37 (return_statements -> RETURN ; .)
+    NUM             reduce using rule 37 (return_statements -> RETURN ; .)
+    BOOLEAN         reduce using rule 37 (return_statements -> RETURN ; .)
+    ELSE            reduce using rule 37 (return_statements -> RETURN ; .)
+
+
+state 57
+
+    (38) return_statements -> RETURN expression . ;
+
+    ;               shift and go to state 84
+
+
+state 58
+
+    (6) var_declaration -> type_specifier ID . ;
+    (7) var_declaration -> type_specifier ID . [ NUM ] = { numlist } ;
+    (8) var_declaration -> type_specifier ID . [ NUM ] = STRING ;
+    (45) var -> ID .
+    (46) var -> ID . [ expression ]
+
+    ;               shift and go to state 17
+    [               shift and go to state 85
+    =               reduce using rule 45 (var -> ID .)
+
+
+state 59
+
+    (41) expression -> type_specifier var . = expression
+
+    =               shift and go to state 86
+
+
+state 60
+
+    (46) var -> ID [ . expression ]
+    (39) expression -> . var = expression
+    (40) expression -> . simple_expression
+    (41) expression -> . type_specifier var = expression
+    (42) expression -> . STRING
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (47) simple_expression -> . addsub_object relational_operator addsub_object
+    (48) simple_expression -> . addsub_object
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (55) addsub_object -> . addsub_object add_sub muldiv_object
+    (56) addsub_object -> . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (68) fun_value -> . ID ( args )
+
+    STRING          shift and go to state 37
+    ID              shift and go to state 35
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+
+    expression                     shift and go to state 87
+    var                            shift and go to state 38
+    simple_expression              shift and go to state 39
+    type_specifier                 shift and go to state 54
+    addsub_object                  shift and go to state 40
+    muldiv_object                  shift and go to state 41
+    object                         shift and go to state 42
+    fun_value                      shift and go to state 43
+
+state 61
+
+    (68) fun_value -> ID ( . args )
+    (69) args -> . arg_list
+    (70) args -> .
+    (71) arg_list -> . arg_list , expression
+    (72) arg_list -> . expression
+    (39) expression -> . var = expression
+    (40) expression -> . simple_expression
+    (41) expression -> . type_specifier var = expression
+    (42) expression -> . STRING
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (47) simple_expression -> . addsub_object relational_operator addsub_object
+    (48) simple_expression -> . addsub_object
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (55) addsub_object -> . addsub_object add_sub muldiv_object
+    (56) addsub_object -> . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (68) fun_value -> . ID ( args )
+
+    )               reduce using rule 70 (args -> .)
+    STRING          shift and go to state 37
+    ID              shift and go to state 35
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+
+    args                           shift and go to state 88
+    arg_list                       shift and go to state 89
+    expression                     shift and go to state 90
+    var                            shift and go to state 38
+    simple_expression              shift and go to state 39
+    type_specifier                 shift and go to state 54
+    addsub_object                  shift and go to state 40
+    muldiv_object                  shift and go to state 41
+    object                         shift and go to state 42
+    fun_value                      shift and go to state 43
+
+state 62
+
+    (39) expression -> var = . expression
+    (39) expression -> . var = expression
+    (40) expression -> . simple_expression
+    (41) expression -> . type_specifier var = expression
+    (42) expression -> . STRING
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (47) simple_expression -> . addsub_object relational_operator addsub_object
+    (48) simple_expression -> . addsub_object
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (55) addsub_object -> . addsub_object add_sub muldiv_object
+    (56) addsub_object -> . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (68) fun_value -> . ID ( args )
+
+    STRING          shift and go to state 37
+    ID              shift and go to state 35
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+
+    var                            shift and go to state 38
+    expression                     shift and go to state 91
+    simple_expression              shift and go to state 39
+    type_specifier                 shift and go to state 54
+    addsub_object                  shift and go to state 40
+    muldiv_object                  shift and go to state 41
+    object                         shift and go to state 42
+    fun_value                      shift and go to state 43
+
+state 63
+
+    (47) simple_expression -> addsub_object relational_operator . addsub_object
+    (55) addsub_object -> . addsub_object add_sub muldiv_object
+    (56) addsub_object -> . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (68) fun_value -> . ID ( args )
+
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+    ID              shift and go to state 35
+
+    addsub_object                  shift and go to state 92
+    muldiv_object                  shift and go to state 41
+    object                         shift and go to state 42
+    var                            shift and go to state 93
+    fun_value                      shift and go to state 43
+
+state 64
+
+    (55) addsub_object -> addsub_object add_sub . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (68) fun_value -> . ID ( args )
+
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+    ID              shift and go to state 35
+
+    muldiv_object                  shift and go to state 94
+    object                         shift and go to state 42
+    var                            shift and go to state 93
+    fun_value                      shift and go to state 43
+
+state 65
+
+    (49) relational_operator -> LE .
+
+    (               reduce using rule 49 (relational_operator -> LE .)
+    NUM             reduce using rule 49 (relational_operator -> LE .)
+    BOOLEAN         reduce using rule 49 (relational_operator -> LE .)
+    ID              reduce using rule 49 (relational_operator -> LE .)
+
+
+state 66
+
+    (50) relational_operator -> < .
+
+    (               reduce using rule 50 (relational_operator -> < .)
+    NUM             reduce using rule 50 (relational_operator -> < .)
+    BOOLEAN         reduce using rule 50 (relational_operator -> < .)
+    ID              reduce using rule 50 (relational_operator -> < .)
+
+
+state 67
+
+    (51) relational_operator -> > .
+
+    (               reduce using rule 51 (relational_operator -> > .)
+    NUM             reduce using rule 51 (relational_operator -> > .)
+    BOOLEAN         reduce using rule 51 (relational_operator -> > .)
+    ID              reduce using rule 51 (relational_operator -> > .)
+
+
+state 68
+
+    (52) relational_operator -> GE .
+
+    (               reduce using rule 52 (relational_operator -> GE .)
+    NUM             reduce using rule 52 (relational_operator -> GE .)
+    BOOLEAN         reduce using rule 52 (relational_operator -> GE .)
+    ID              reduce using rule 52 (relational_operator -> GE .)
+
+
+state 69
+
+    (53) relational_operator -> EE .
+
+    (               reduce using rule 53 (relational_operator -> EE .)
+    NUM             reduce using rule 53 (relational_operator -> EE .)
+    BOOLEAN         reduce using rule 53 (relational_operator -> EE .)
+    ID              reduce using rule 53 (relational_operator -> EE .)
+
+
+state 70
+
+    (54) relational_operator -> NE .
+
+    (               reduce using rule 54 (relational_operator -> NE .)
+    NUM             reduce using rule 54 (relational_operator -> NE .)
+    BOOLEAN         reduce using rule 54 (relational_operator -> NE .)
+    ID              reduce using rule 54 (relational_operator -> NE .)
+
+
+state 71
+
+    (59) add_sub -> + .
+
+    (               reduce using rule 59 (add_sub -> + .)
+    NUM             reduce using rule 59 (add_sub -> + .)
+    BOOLEAN         reduce using rule 59 (add_sub -> + .)
+    ID              reduce using rule 59 (add_sub -> + .)
+
+
+state 72
+
+    (60) add_sub -> - .
+
+    (               reduce using rule 60 (add_sub -> - .)
+    NUM             reduce using rule 60 (add_sub -> - .)
+    BOOLEAN         reduce using rule 60 (add_sub -> - .)
+    ID              reduce using rule 60 (add_sub -> - .)
+
+
+state 73
+
+    (57) muldiv_object -> muldiv_object mul_div . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (68) fun_value -> . ID ( args )
+
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+    ID              shift and go to state 35
+
+    object                         shift and go to state 95
+    var                            shift and go to state 93
+    fun_value                      shift and go to state 43
+
+state 74
+
+    (61) mul_div -> * .
+
+    (               reduce using rule 61 (mul_div -> * .)
+    NUM             reduce using rule 61 (mul_div -> * .)
+    BOOLEAN         reduce using rule 61 (mul_div -> * .)
+    ID              reduce using rule 61 (mul_div -> * .)
+
+
+state 75
+
+    (62) mul_div -> / .
+
+    (               reduce using rule 62 (mul_div -> / .)
+    NUM             reduce using rule 62 (mul_div -> / .)
+    BOOLEAN         reduce using rule 62 (mul_div -> / .)
+    ID              reduce using rule 62 (mul_div -> / .)
+
+
+state 76
+
+    (7) var_declaration -> type_specifier ID [ NUM ] . = { numlist } ;
+    (8) var_declaration -> type_specifier ID [ NUM ] . = STRING ;
+
+    =               shift and go to state 96
+
+
+state 77
+
+    (21) param -> type_specifier ID .
+    (22) param -> type_specifier ID . [ ]
+
+    ,               reduce using rule 21 (param -> type_specifier ID .)
+    )               reduce using rule 21 (param -> type_specifier ID .)
+    [               shift and go to state 97
+
+
+state 78
+
+    (14) fun_declaration -> type_specifier ID ( params ) . statement_block
+    (23) statement_block -> . { statement_list }
+
+    {               shift and go to state 7
+
+    statement_block                shift and go to state 98
+
+state 79
+
+    (19) param_list -> param_list , . param
+    (21) param -> . type_specifier ID
+    (22) param -> . type_specifier ID [ ]
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+
+    param                          shift and go to state 99
+    type_specifier                 shift and go to state 46
+
+state 80
+
+    (34) if_else_statements -> IF ( expression . ) statement
+    (35) if_else_statements -> IF ( expression . ) statement ELSE statement
+
+    )               shift and go to state 100
+
+
+state 81
+
+    (63) object -> ( expression ) .
+
+    *               reduce using rule 63 (object -> ( expression ) .)
+    /               reduce using rule 63 (object -> ( expression ) .)
+    LE              reduce using rule 63 (object -> ( expression ) .)
+    <               reduce using rule 63 (object -> ( expression ) .)
+    >               reduce using rule 63 (object -> ( expression ) .)
+    GE              reduce using rule 63 (object -> ( expression ) .)
+    EE              reduce using rule 63 (object -> ( expression ) .)
+    NE              reduce using rule 63 (object -> ( expression ) .)
+    +               reduce using rule 63 (object -> ( expression ) .)
+    -               reduce using rule 63 (object -> ( expression ) .)
+    ;               reduce using rule 63 (object -> ( expression ) .)
+    )               reduce using rule 63 (object -> ( expression ) .)
+    ]               reduce using rule 63 (object -> ( expression ) .)
+    ,               reduce using rule 63 (object -> ( expression ) .)
+
+
+state 82
+
+    (45) var -> ID .
+    (46) var -> ID . [ expression ]
+
+    =               reduce using rule 45 (var -> ID .)
+    [               shift and go to state 60
+
+
+state 83
+
+    (36) while_statments -> WHILE ( expression . ) statement
+
+    )               shift and go to state 101
+
+
+state 84
+
+    (38) return_statements -> RETURN expression ; .
+
+    }               reduce using rule 38 (return_statements -> RETURN expression ; .)
+    ;               reduce using rule 38 (return_statements -> RETURN expression ; .)
+    {               reduce using rule 38 (return_statements -> RETURN expression ; .)
+    IF              reduce using rule 38 (return_statements -> RETURN expression ; .)
+    WHILE           reduce using rule 38 (return_statements -> RETURN expression ; .)
+    RETURN          reduce using rule 38 (return_statements -> RETURN expression ; .)
+    STRING          reduce using rule 38 (return_statements -> RETURN expression ; .)
+    INT             reduce using rule 38 (return_statements -> RETURN expression ; .)
+    VOID            reduce using rule 38 (return_statements -> RETURN expression ; .)
+    CHAR            reduce using rule 38 (return_statements -> RETURN expression ; .)
+    CHAR_STAR       reduce using rule 38 (return_statements -> RETURN expression ; .)
+    INT_STAR        reduce using rule 38 (return_statements -> RETURN expression ; .)
+    ID              reduce using rule 38 (return_statements -> RETURN expression ; .)
+    (               reduce using rule 38 (return_statements -> RETURN expression ; .)
+    NUM             reduce using rule 38 (return_statements -> RETURN expression ; .)
+    BOOLEAN         reduce using rule 38 (return_statements -> RETURN expression ; .)
+    ELSE            reduce using rule 38 (return_statements -> RETURN expression ; .)
+
+
+state 85
+
+    (7) var_declaration -> type_specifier ID [ . NUM ] = { numlist } ;
+    (8) var_declaration -> type_specifier ID [ . NUM ] = STRING ;
+    (46) var -> ID [ . expression ]
+    (39) expression -> . var = expression
+    (40) expression -> . simple_expression
+    (41) expression -> . type_specifier var = expression
+    (42) expression -> . STRING
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (47) simple_expression -> . addsub_object relational_operator addsub_object
+    (48) simple_expression -> . addsub_object
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (55) addsub_object -> . addsub_object add_sub muldiv_object
+    (56) addsub_object -> . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (68) fun_value -> . ID ( args )
+
+    NUM             shift and go to state 102
+    STRING          shift and go to state 37
+    ID              shift and go to state 35
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    (               shift and go to state 31
+    BOOLEAN         shift and go to state 44
+
+    type_specifier                 shift and go to state 54
+    expression                     shift and go to state 87
+    var                            shift and go to state 38
+    simple_expression              shift and go to state 39
+    addsub_object                  shift and go to state 40
+    muldiv_object                  shift and go to state 41
+    object                         shift and go to state 42
+    fun_value                      shift and go to state 43
+
+state 86
+
+    (41) expression -> type_specifier var = . expression
+    (39) expression -> . var = expression
+    (40) expression -> . simple_expression
+    (41) expression -> . type_specifier var = expression
+    (42) expression -> . STRING
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (47) simple_expression -> . addsub_object relational_operator addsub_object
+    (48) simple_expression -> . addsub_object
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (55) addsub_object -> . addsub_object add_sub muldiv_object
+    (56) addsub_object -> . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (68) fun_value -> . ID ( args )
+
+    STRING          shift and go to state 37
+    ID              shift and go to state 35
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+
+    type_specifier                 shift and go to state 54
+    var                            shift and go to state 38
+    expression                     shift and go to state 103
+    simple_expression              shift and go to state 39
+    addsub_object                  shift and go to state 40
+    muldiv_object                  shift and go to state 41
+    object                         shift and go to state 42
+    fun_value                      shift and go to state 43
+
+state 87
+
+    (46) var -> ID [ expression . ]
+
+    ]               shift and go to state 104
+
+
+state 88
+
+    (68) fun_value -> ID ( args . )
+
+    )               shift and go to state 105
+
+
+state 89
+
+    (69) args -> arg_list .
+    (71) arg_list -> arg_list . , expression
+
+    )               reduce using rule 69 (args -> arg_list .)
+    ,               shift and go to state 106
+
+
+state 90
+
+    (72) arg_list -> expression .
+
+    ,               reduce using rule 72 (arg_list -> expression .)
+    )               reduce using rule 72 (arg_list -> expression .)
+
+
+state 91
+
+    (39) expression -> var = expression .
+
+    ;               reduce using rule 39 (expression -> var = expression .)
+    )               reduce using rule 39 (expression -> var = expression .)
+    ]               reduce using rule 39 (expression -> var = expression .)
+    ,               reduce using rule 39 (expression -> var = expression .)
+
+
+state 92
+
+    (47) simple_expression -> addsub_object relational_operator addsub_object .
+    (55) addsub_object -> addsub_object . add_sub muldiv_object
+    (59) add_sub -> . +
+    (60) add_sub -> . -
+
+    ;               reduce using rule 47 (simple_expression -> addsub_object relational_operator addsub_object .)
+    )               reduce using rule 47 (simple_expression -> addsub_object relational_operator addsub_object .)
+    ]               reduce using rule 47 (simple_expression -> addsub_object relational_operator addsub_object .)
+    ,               reduce using rule 47 (simple_expression -> addsub_object relational_operator addsub_object .)
+    +               shift and go to state 71
+    -               shift and go to state 72
+
+    add_sub                        shift and go to state 64
+
+state 93
+
+    (64) object -> var .
+
+    *               reduce using rule 64 (object -> var .)
+    /               reduce using rule 64 (object -> var .)
+    +               reduce using rule 64 (object -> var .)
+    -               reduce using rule 64 (object -> var .)
+    ;               reduce using rule 64 (object -> var .)
+    )               reduce using rule 64 (object -> var .)
+    ]               reduce using rule 64 (object -> var .)
+    ,               reduce using rule 64 (object -> var .)
+    LE              reduce using rule 64 (object -> var .)
+    <               reduce using rule 64 (object -> var .)
+    >               reduce using rule 64 (object -> var .)
+    GE              reduce using rule 64 (object -> var .)
+    EE              reduce using rule 64 (object -> var .)
+    NE              reduce using rule 64 (object -> var .)
+
+
+state 94
+
+    (55) addsub_object -> addsub_object add_sub muldiv_object .
+    (57) muldiv_object -> muldiv_object . mul_div object
+    (61) mul_div -> . *
+    (62) mul_div -> . /
+
+    LE              reduce using rule 55 (addsub_object -> addsub_object add_sub muldiv_object .)
+    <               reduce using rule 55 (addsub_object -> addsub_object add_sub muldiv_object .)
+    >               reduce using rule 55 (addsub_object -> addsub_object add_sub muldiv_object .)
+    GE              reduce using rule 55 (addsub_object -> addsub_object add_sub muldiv_object .)
+    EE              reduce using rule 55 (addsub_object -> addsub_object add_sub muldiv_object .)
+    NE              reduce using rule 55 (addsub_object -> addsub_object add_sub muldiv_object .)
+    +               reduce using rule 55 (addsub_object -> addsub_object add_sub muldiv_object .)
+    -               reduce using rule 55 (addsub_object -> addsub_object add_sub muldiv_object .)
+    ;               reduce using rule 55 (addsub_object -> addsub_object add_sub muldiv_object .)
+    )               reduce using rule 55 (addsub_object -> addsub_object add_sub muldiv_object .)
+    ]               reduce using rule 55 (addsub_object -> addsub_object add_sub muldiv_object .)
+    ,               reduce using rule 55 (addsub_object -> addsub_object add_sub muldiv_object .)
+    *               shift and go to state 74
+    /               shift and go to state 75
+
+    mul_div                        shift and go to state 73
+
+state 95
+
+    (57) muldiv_object -> muldiv_object mul_div object .
+
+    *               reduce using rule 57 (muldiv_object -> muldiv_object mul_div object .)
+    /               reduce using rule 57 (muldiv_object -> muldiv_object mul_div object .)
+    LE              reduce using rule 57 (muldiv_object -> muldiv_object mul_div object .)
+    <               reduce using rule 57 (muldiv_object -> muldiv_object mul_div object .)
+    >               reduce using rule 57 (muldiv_object -> muldiv_object mul_div object .)
+    GE              reduce using rule 57 (muldiv_object -> muldiv_object mul_div object .)
+    EE              reduce using rule 57 (muldiv_object -> muldiv_object mul_div object .)
+    NE              reduce using rule 57 (muldiv_object -> muldiv_object mul_div object .)
+    +               reduce using rule 57 (muldiv_object -> muldiv_object mul_div object .)
+    -               reduce using rule 57 (muldiv_object -> muldiv_object mul_div object .)
+    ;               reduce using rule 57 (muldiv_object -> muldiv_object mul_div object .)
+    )               reduce using rule 57 (muldiv_object -> muldiv_object mul_div object .)
+    ]               reduce using rule 57 (muldiv_object -> muldiv_object mul_div object .)
+    ,               reduce using rule 57 (muldiv_object -> muldiv_object mul_div object .)
+
+
+state 96
+
+    (7) var_declaration -> type_specifier ID [ NUM ] = . { numlist } ;
+    (8) var_declaration -> type_specifier ID [ NUM ] = . STRING ;
+
+    {               shift and go to state 107
+    STRING          shift and go to state 108
+
+
+state 97
+
+    (22) param -> type_specifier ID [ . ]
+
+    ]               shift and go to state 109
+
+
+state 98
+
+    (14) fun_declaration -> type_specifier ID ( params ) statement_block .
+
+    INT             reduce using rule 14 (fun_declaration -> type_specifier ID ( params ) statement_block .)
+    VOID            reduce using rule 14 (fun_declaration -> type_specifier ID ( params ) statement_block .)
+    CHAR            reduce using rule 14 (fun_declaration -> type_specifier ID ( params ) statement_block .)
+    CHAR_STAR       reduce using rule 14 (fun_declaration -> type_specifier ID ( params ) statement_block .)
+    INT_STAR        reduce using rule 14 (fun_declaration -> type_specifier ID ( params ) statement_block .)
+    {               reduce using rule 14 (fun_declaration -> type_specifier ID ( params ) statement_block .)
+    $end            reduce using rule 14 (fun_declaration -> type_specifier ID ( params ) statement_block .)
+
+
+state 99
+
+    (19) param_list -> param_list , param .
+
+    ,               reduce using rule 19 (param_list -> param_list , param .)
+    )               reduce using rule 19 (param_list -> param_list , param .)
+
+
+state 100
+
+    (34) if_else_statements -> IF ( expression ) . statement
+    (35) if_else_statements -> IF ( expression ) . statement ELSE statement
+    (26) statement -> . expression_statement
+    (27) statement -> . statement_block
+    (28) statement -> . if_else_statements
+    (29) statement -> . while_statments
+    (30) statement -> . return_statements
+    (31) statement -> . var_declaration
+    (32) expression_statement -> . expression ;
+    (33) expression_statement -> . ;
+    (23) statement_block -> . { statement_list }
+    (34) if_else_statements -> . IF ( expression ) statement
+    (35) if_else_statements -> . IF ( expression ) statement ELSE statement
+    (36) while_statments -> . WHILE ( expression ) statement
+    (37) return_statements -> . RETURN ;
+    (38) return_statements -> . RETURN expression ;
+    (6) var_declaration -> . type_specifier ID ;
+    (7) var_declaration -> . type_specifier ID [ NUM ] = { numlist } ;
+    (8) var_declaration -> . type_specifier ID [ NUM ] = STRING ;
+    (39) expression -> . var = expression
+    (40) expression -> . simple_expression
+    (41) expression -> . type_specifier var = expression
+    (42) expression -> . STRING
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (47) simple_expression -> . addsub_object relational_operator addsub_object
+    (48) simple_expression -> . addsub_object
+    (55) addsub_object -> . addsub_object add_sub muldiv_object
+    (56) addsub_object -> . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (68) fun_value -> . ID ( args )
+
+    ;               shift and go to state 29
+    {               shift and go to state 7
+    IF              shift and go to state 30
+    WHILE           shift and go to state 32
+    RETURN          shift and go to state 33
+    STRING          shift and go to state 37
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    ID              shift and go to state 35
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+
+    expression                     shift and go to state 28
+    statement                      shift and go to state 110
+    expression_statement           shift and go to state 22
+    statement_block                shift and go to state 23
+    if_else_statements             shift and go to state 24
+    while_statments                shift and go to state 25
+    return_statements              shift and go to state 26
+    var_declaration                shift and go to state 27
+    type_specifier                 shift and go to state 34
+    var                            shift and go to state 38
+    simple_expression              shift and go to state 39
+    addsub_object                  shift and go to state 40
+    muldiv_object                  shift and go to state 41
+    object                         shift and go to state 42
+    fun_value                      shift and go to state 43
+
+state 101
+
+    (36) while_statments -> WHILE ( expression ) . statement
+    (26) statement -> . expression_statement
+    (27) statement -> . statement_block
+    (28) statement -> . if_else_statements
+    (29) statement -> . while_statments
+    (30) statement -> . return_statements
+    (31) statement -> . var_declaration
+    (32) expression_statement -> . expression ;
+    (33) expression_statement -> . ;
+    (23) statement_block -> . { statement_list }
+    (34) if_else_statements -> . IF ( expression ) statement
+    (35) if_else_statements -> . IF ( expression ) statement ELSE statement
+    (36) while_statments -> . WHILE ( expression ) statement
+    (37) return_statements -> . RETURN ;
+    (38) return_statements -> . RETURN expression ;
+    (6) var_declaration -> . type_specifier ID ;
+    (7) var_declaration -> . type_specifier ID [ NUM ] = { numlist } ;
+    (8) var_declaration -> . type_specifier ID [ NUM ] = STRING ;
+    (39) expression -> . var = expression
+    (40) expression -> . simple_expression
+    (41) expression -> . type_specifier var = expression
+    (42) expression -> . STRING
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (47) simple_expression -> . addsub_object relational_operator addsub_object
+    (48) simple_expression -> . addsub_object
+    (55) addsub_object -> . addsub_object add_sub muldiv_object
+    (56) addsub_object -> . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (68) fun_value -> . ID ( args )
+
+    ;               shift and go to state 29
+    {               shift and go to state 7
+    IF              shift and go to state 30
+    WHILE           shift and go to state 32
+    RETURN          shift and go to state 33
+    STRING          shift and go to state 37
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    ID              shift and go to state 35
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+
+    expression                     shift and go to state 28
+    statement                      shift and go to state 111
+    expression_statement           shift and go to state 22
+    statement_block                shift and go to state 23
+    if_else_statements             shift and go to state 24
+    while_statments                shift and go to state 25
+    return_statements              shift and go to state 26
+    var_declaration                shift and go to state 27
+    type_specifier                 shift and go to state 34
+    var                            shift and go to state 38
+    simple_expression              shift and go to state 39
+    addsub_object                  shift and go to state 40
+    muldiv_object                  shift and go to state 41
+    object                         shift and go to state 42
+    fun_value                      shift and go to state 43
+
+state 102
+
+    (7) var_declaration -> type_specifier ID [ NUM . ] = { numlist } ;
+    (8) var_declaration -> type_specifier ID [ NUM . ] = STRING ;
+    (66) object -> NUM .
+
+  ! shift/reduce conflict for ] resolved as shift
+    ]               shift and go to state 76
+    *               reduce using rule 66 (object -> NUM .)
+    /               reduce using rule 66 (object -> NUM .)
+    LE              reduce using rule 66 (object -> NUM .)
+    <               reduce using rule 66 (object -> NUM .)
+    >               reduce using rule 66 (object -> NUM .)
+    GE              reduce using rule 66 (object -> NUM .)
+    EE              reduce using rule 66 (object -> NUM .)
+    NE              reduce using rule 66 (object -> NUM .)
+    +               reduce using rule 66 (object -> NUM .)
+    -               reduce using rule 66 (object -> NUM .)
+
+  ! ]               [ reduce using rule 66 (object -> NUM .) ]
+
+
+state 103
+
+    (41) expression -> type_specifier var = expression .
+
+    ;               reduce using rule 41 (expression -> type_specifier var = expression .)
+    )               reduce using rule 41 (expression -> type_specifier var = expression .)
+    ]               reduce using rule 41 (expression -> type_specifier var = expression .)
+    ,               reduce using rule 41 (expression -> type_specifier var = expression .)
+
+
+state 104
+
+    (46) var -> ID [ expression ] .
+
+    =               reduce using rule 46 (var -> ID [ expression ] .)
+    *               reduce using rule 46 (var -> ID [ expression ] .)
+    /               reduce using rule 46 (var -> ID [ expression ] .)
+    LE              reduce using rule 46 (var -> ID [ expression ] .)
+    <               reduce using rule 46 (var -> ID [ expression ] .)
+    >               reduce using rule 46 (var -> ID [ expression ] .)
+    GE              reduce using rule 46 (var -> ID [ expression ] .)
+    EE              reduce using rule 46 (var -> ID [ expression ] .)
+    NE              reduce using rule 46 (var -> ID [ expression ] .)
+    +               reduce using rule 46 (var -> ID [ expression ] .)
+    -               reduce using rule 46 (var -> ID [ expression ] .)
+    ;               reduce using rule 46 (var -> ID [ expression ] .)
+    )               reduce using rule 46 (var -> ID [ expression ] .)
+    ]               reduce using rule 46 (var -> ID [ expression ] .)
+    ,               reduce using rule 46 (var -> ID [ expression ] .)
+
+
+state 105
+
+    (68) fun_value -> ID ( args ) .
+
+    *               reduce using rule 68 (fun_value -> ID ( args ) .)
+    /               reduce using rule 68 (fun_value -> ID ( args ) .)
+    LE              reduce using rule 68 (fun_value -> ID ( args ) .)
+    <               reduce using rule 68 (fun_value -> ID ( args ) .)
+    >               reduce using rule 68 (fun_value -> ID ( args ) .)
+    GE              reduce using rule 68 (fun_value -> ID ( args ) .)
+    EE              reduce using rule 68 (fun_value -> ID ( args ) .)
+    NE              reduce using rule 68 (fun_value -> ID ( args ) .)
+    +               reduce using rule 68 (fun_value -> ID ( args ) .)
+    -               reduce using rule 68 (fun_value -> ID ( args ) .)
+    ;               reduce using rule 68 (fun_value -> ID ( args ) .)
+    )               reduce using rule 68 (fun_value -> ID ( args ) .)
+    ]               reduce using rule 68 (fun_value -> ID ( args ) .)
+    ,               reduce using rule 68 (fun_value -> ID ( args ) .)
+
+
+state 106
+
+    (71) arg_list -> arg_list , . expression
+    (39) expression -> . var = expression
+    (40) expression -> . simple_expression
+    (41) expression -> . type_specifier var = expression
+    (42) expression -> . STRING
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (47) simple_expression -> . addsub_object relational_operator addsub_object
+    (48) simple_expression -> . addsub_object
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (55) addsub_object -> . addsub_object add_sub muldiv_object
+    (56) addsub_object -> . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (68) fun_value -> . ID ( args )
+
+    STRING          shift and go to state 37
+    ID              shift and go to state 35
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+
+    expression                     shift and go to state 112
+    var                            shift and go to state 38
+    simple_expression              shift and go to state 39
+    type_specifier                 shift and go to state 54
+    addsub_object                  shift and go to state 40
+    muldiv_object                  shift and go to state 41
+    object                         shift and go to state 42
+    fun_value                      shift and go to state 43
+
+state 107
+
+    (7) var_declaration -> type_specifier ID [ NUM ] = { . numlist } ;
+    (43) numlist -> . numlist , NUM
+    (44) numlist -> . NUM
+
+    NUM             shift and go to state 113
+
+    numlist                        shift and go to state 114
+
+state 108
+
+    (8) var_declaration -> type_specifier ID [ NUM ] = STRING . ;
+
+    ;               shift and go to state 115
+
+
+state 109
+
+    (22) param -> type_specifier ID [ ] .
+
+    ,               reduce using rule 22 (param -> type_specifier ID [ ] .)
+    )               reduce using rule 22 (param -> type_specifier ID [ ] .)
+
+
+state 110
+
+    (34) if_else_statements -> IF ( expression ) statement .
+    (35) if_else_statements -> IF ( expression ) statement . ELSE statement
+
+  ! shift/reduce conflict for ELSE resolved as shift
+    }               reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    ;               reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    {               reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    IF              reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    WHILE           reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    RETURN          reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    STRING          reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    INT             reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    VOID            reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    CHAR            reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    CHAR_STAR       reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    INT_STAR        reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    ID              reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    (               reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    NUM             reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    BOOLEAN         reduce using rule 34 (if_else_statements -> IF ( expression ) statement .)
+    ELSE            shift and go to state 116
+
+  ! ELSE            [ reduce using rule 34 (if_else_statements -> IF ( expression ) statement .) ]
+
+
+state 111
+
+    (36) while_statments -> WHILE ( expression ) statement .
+
+    }               reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    ;               reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    {               reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    IF              reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    WHILE           reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    RETURN          reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    STRING          reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    INT             reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    VOID            reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    CHAR            reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    CHAR_STAR       reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    INT_STAR        reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    ID              reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    (               reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    NUM             reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    BOOLEAN         reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+    ELSE            reduce using rule 36 (while_statments -> WHILE ( expression ) statement .)
+
+
+state 112
+
+    (71) arg_list -> arg_list , expression .
+
+    ,               reduce using rule 71 (arg_list -> arg_list , expression .)
+    )               reduce using rule 71 (arg_list -> arg_list , expression .)
+
+
+state 113
+
+    (44) numlist -> NUM .
+
+    }               reduce using rule 44 (numlist -> NUM .)
+    ,               reduce using rule 44 (numlist -> NUM .)
+
+
+state 114
+
+    (7) var_declaration -> type_specifier ID [ NUM ] = { numlist . } ;
+    (43) numlist -> numlist . , NUM
+
+    }               shift and go to state 117
+    ,               shift and go to state 118
+
+
+state 115
+
+    (8) var_declaration -> type_specifier ID [ NUM ] = STRING ; .
+
+    INT             reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    VOID            reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    CHAR            reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    CHAR_STAR       reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    INT_STAR        reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    {               reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    $end            reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    }               reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    ;               reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    IF              reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    WHILE           reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    RETURN          reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    STRING          reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    ID              reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    (               reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    NUM             reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    BOOLEAN         reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+    ELSE            reduce using rule 8 (var_declaration -> type_specifier ID [ NUM ] = STRING ; .)
+
+
+state 116
+
+    (35) if_else_statements -> IF ( expression ) statement ELSE . statement
+    (26) statement -> . expression_statement
+    (27) statement -> . statement_block
+    (28) statement -> . if_else_statements
+    (29) statement -> . while_statments
+    (30) statement -> . return_statements
+    (31) statement -> . var_declaration
+    (32) expression_statement -> . expression ;
+    (33) expression_statement -> . ;
+    (23) statement_block -> . { statement_list }
+    (34) if_else_statements -> . IF ( expression ) statement
+    (35) if_else_statements -> . IF ( expression ) statement ELSE statement
+    (36) while_statments -> . WHILE ( expression ) statement
+    (37) return_statements -> . RETURN ;
+    (38) return_statements -> . RETURN expression ;
+    (6) var_declaration -> . type_specifier ID ;
+    (7) var_declaration -> . type_specifier ID [ NUM ] = { numlist } ;
+    (8) var_declaration -> . type_specifier ID [ NUM ] = STRING ;
+    (39) expression -> . var = expression
+    (40) expression -> . simple_expression
+    (41) expression -> . type_specifier var = expression
+    (42) expression -> . STRING
+    (9) type_specifier -> . INT
+    (10) type_specifier -> . VOID
+    (11) type_specifier -> . CHAR
+    (12) type_specifier -> . CHAR_STAR
+    (13) type_specifier -> . INT_STAR
+    (45) var -> . ID
+    (46) var -> . ID [ expression ]
+    (47) simple_expression -> . addsub_object relational_operator addsub_object
+    (48) simple_expression -> . addsub_object
+    (55) addsub_object -> . addsub_object add_sub muldiv_object
+    (56) addsub_object -> . muldiv_object
+    (57) muldiv_object -> . muldiv_object mul_div object
+    (58) muldiv_object -> . object
+    (63) object -> . ( expression )
+    (64) object -> . var
+    (65) object -> . fun_value
+    (66) object -> . NUM
+    (67) object -> . BOOLEAN
+    (68) fun_value -> . ID ( args )
+
+    ;               shift and go to state 29
+    {               shift and go to state 7
+    IF              shift and go to state 30
+    WHILE           shift and go to state 32
+    RETURN          shift and go to state 33
+    STRING          shift and go to state 37
+    INT             shift and go to state 9
+    VOID            shift and go to state 10
+    CHAR            shift and go to state 11
+    CHAR_STAR       shift and go to state 12
+    INT_STAR        shift and go to state 13
+    ID              shift and go to state 35
+    (               shift and go to state 31
+    NUM             shift and go to state 36
+    BOOLEAN         shift and go to state 44
+
+    expression                     shift and go to state 28
+    statement                      shift and go to state 119
+    expression_statement           shift and go to state 22
+    statement_block                shift and go to state 23
+    if_else_statements             shift and go to state 24
+    while_statments                shift and go to state 25
+    return_statements              shift and go to state 26
+    var_declaration                shift and go to state 27
+    type_specifier                 shift and go to state 34
+    var                            shift and go to state 38
+    simple_expression              shift and go to state 39
+    addsub_object                  shift and go to state 40
+    muldiv_object                  shift and go to state 41
+    object                         shift and go to state 42
+    fun_value                      shift and go to state 43
+
+state 117
+
+    (7) var_declaration -> type_specifier ID [ NUM ] = { numlist } . ;
+
+    ;               shift and go to state 120
+
+
+state 118
+
+    (43) numlist -> numlist , . NUM
+
+    NUM             shift and go to state 121
+
+
+state 119
+
+    (35) if_else_statements -> IF ( expression ) statement ELSE statement .
+
+    }               reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    ;               reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    {               reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    IF              reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    WHILE           reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    RETURN          reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    STRING          reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    INT             reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    VOID            reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    CHAR            reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    CHAR_STAR       reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    INT_STAR        reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    ID              reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    (               reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    NUM             reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    BOOLEAN         reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+    ELSE            reduce using rule 35 (if_else_statements -> IF ( expression ) statement ELSE statement .)
+
+
+state 120
+
+    (7) var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .
+
+    INT             reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    VOID            reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    CHAR            reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    CHAR_STAR       reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    INT_STAR        reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    {               reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    $end            reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    }               reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    ;               reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    IF              reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    WHILE           reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    RETURN          reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    STRING          reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    ID              reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    (               reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    NUM             reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    BOOLEAN         reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+    ELSE            reduce using rule 7 (var_declaration -> type_specifier ID [ NUM ] = { numlist } ; .)
+
+
+state 121
+
+    (43) numlist -> numlist , NUM .
+
+    }               reduce using rule 43 (numlist -> numlist , NUM .)
+    ,               reduce using rule 43 (numlist -> numlist , NUM .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for ] in state 102 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 110 resolved as shift
